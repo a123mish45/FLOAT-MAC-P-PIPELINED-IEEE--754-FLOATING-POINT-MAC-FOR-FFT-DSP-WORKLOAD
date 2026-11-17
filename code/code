@@ -1,0 +1,1065 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xB11EB32664ED125C",
+      "device": "xc7a100tcsg324-1",
+      "gen_directory": "../../../../PIPELINED_FLOAT_MAC.gen/sources_1/bd/FLOAT_POINT_MAC",
+      "name": "FLOAT_POINT_MAC",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2023.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "FLOAT_UNPACK_0": "",
+      "REG_STAGE1_0": "",
+      "FLOAT_MULTIPLIER_0": "",
+      "REG_STAGE2_0": "",
+      "FLOAT_ADDITION_0": "",
+      "REG_STAGE3_0": "",
+      "FLOAT_NORMALISE_0": "",
+      "REG_STAGE4_0": "",
+      "FLOAT_ROUND_0": "",
+      "REG_STAGE5_0": "",
+      "FLOAT_PACK_0": ""
+    },
+    "ports": {
+      "a_0": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "b_0": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "c_0": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "clk_0": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "rst_0",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "FLOAT_POINT_MAC_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "rst_0": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "fp_result_0": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      }
+    },
+    "components": {
+      "FLOAT_UNPACK_0": {
+        "vlnv": "xilinx.com:module_ref:FLOAT_UNPACK:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_FLOAT_UNPACK_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_FLOAT_UNPACK_0_0\\FLOAT_POINT_MAC_FLOAT_UNPACK_0_0.xci",
+        "inst_hier_path": "FLOAT_UNPACK_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FLOAT_UNPACK",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "a": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "b": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "c": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "sign_a": {
+            "direction": "O"
+          },
+          "sign_b": {
+            "direction": "O"
+          },
+          "sign_c": {
+            "direction": "O"
+          },
+          "exp_a": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "exp_b": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "exp_c": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "mant_a": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "mant_b": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "mant_c": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          }
+        }
+      },
+      "REG_STAGE1_0": {
+        "vlnv": "xilinx.com:module_ref:REG_STAGE1:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_REG_STAGE1_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_REG_STAGE1_0_0\\FLOAT_POINT_MAC_REG_STAGE1_0_0.xci",
+        "inst_hier_path": "REG_STAGE1_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "REG_STAGE1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "FLOAT_POINT_MAC_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sign_a": {
+            "direction": "I"
+          },
+          "sign_b": {
+            "direction": "I"
+          },
+          "sign_c": {
+            "direction": "I"
+          },
+          "exp_a": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "exp_b": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "exp_c": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "mant_a": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "mant_b": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "mant_c": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "sign_a_reg": {
+            "direction": "O"
+          },
+          "sign_b_reg": {
+            "direction": "O"
+          },
+          "sign_c_reg": {
+            "direction": "O"
+          },
+          "exp_a_reg": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "exp_b_reg": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "exp_c_reg": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "mant_a_reg": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "mant_b_reg": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "mant_c_reg": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          }
+        }
+      },
+      "FLOAT_MULTIPLIER_0": {
+        "vlnv": "xilinx.com:module_ref:FLOAT_MULTIPLIER:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_FLOAT_MULTIPLIER_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_FLOAT_MULTIPLIER_0_0\\FLOAT_POINT_MAC_FLOAT_MULTIPLIER_0_0.xci",
+        "inst_hier_path": "FLOAT_MULTIPLIER_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FLOAT_MULTIPLIER",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sign_a": {
+            "direction": "I"
+          },
+          "sign_b": {
+            "direction": "I"
+          },
+          "exp_a": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "exp_b": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "mant_a": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "mant_b": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "sign_m": {
+            "direction": "O"
+          },
+          "exp_m": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_m": {
+            "direction": "O",
+            "left": "47",
+            "right": "0"
+          }
+        }
+      },
+      "REG_STAGE2_0": {
+        "vlnv": "xilinx.com:module_ref:REG_STAGE2:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_REG_STAGE2_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_REG_STAGE2_0_0\\FLOAT_POINT_MAC_REG_STAGE2_0_0.xci",
+        "inst_hier_path": "REG_STAGE2_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "REG_STAGE2",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "FLOAT_POINT_MAC_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sign_m": {
+            "direction": "I"
+          },
+          "exp_m": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_m": {
+            "direction": "I",
+            "left": "47",
+            "right": "0"
+          },
+          "sign_c_in": {
+            "direction": "I"
+          },
+          "exp_c_in": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "mant_c_in": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "sign_m_reg": {
+            "direction": "O"
+          },
+          "exp_m_reg": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_m_reg": {
+            "direction": "O",
+            "left": "47",
+            "right": "0"
+          },
+          "sign_c_reg2": {
+            "direction": "O"
+          },
+          "exp_c_reg2": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "mant_c_reg2": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          }
+        }
+      },
+      "FLOAT_ADDITION_0": {
+        "vlnv": "xilinx.com:module_ref:FLOAT_ADDITION:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_FLOAT_ADDITION_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_FLOAT_ADDITION_0_0\\FLOAT_POINT_MAC_FLOAT_ADDITION_0_0.xci",
+        "inst_hier_path": "FLOAT_ADDITION_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FLOAT_ADDITION",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sign_m": {
+            "direction": "I"
+          },
+          "sign_c": {
+            "direction": "I"
+          },
+          "exp_m": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "exp_c": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "mant_c": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "mant_m": {
+            "direction": "I",
+            "left": "47",
+            "right": "0"
+          },
+          "sign_add": {
+            "direction": "O"
+          },
+          "exp_add": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_add": {
+            "direction": "O",
+            "left": "47",
+            "right": "0"
+          }
+        }
+      },
+      "REG_STAGE3_0": {
+        "vlnv": "xilinx.com:module_ref:REG_STAGE3:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_REG_STAGE3_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_REG_STAGE3_0_0\\FLOAT_POINT_MAC_REG_STAGE3_0_0.xci",
+        "inst_hier_path": "REG_STAGE3_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "REG_STAGE3",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "FLOAT_POINT_MAC_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sign_add": {
+            "direction": "I"
+          },
+          "exp_add": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_add": {
+            "direction": "I",
+            "left": "47",
+            "right": "0"
+          },
+          "sign_add_reg": {
+            "direction": "O"
+          },
+          "exp_add_reg": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_add_reg": {
+            "direction": "O",
+            "left": "47",
+            "right": "0"
+          }
+        }
+      },
+      "FLOAT_NORMALISE_0": {
+        "vlnv": "xilinx.com:module_ref:FLOAT_NORMALISE:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_FLOAT_NORMALISE_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_FLOAT_NORMALISE_0_0\\FLOAT_POINT_MAC_FLOAT_NORMALISE_0_0.xci",
+        "inst_hier_path": "FLOAT_NORMALISE_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FLOAT_NORMALISE",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sign_add": {
+            "direction": "I"
+          },
+          "exp_add": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_add": {
+            "direction": "I",
+            "left": "47",
+            "right": "0"
+          },
+          "sign_norm": {
+            "direction": "O"
+          },
+          "exp_norm": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_norm": {
+            "direction": "O",
+            "left": "47",
+            "right": "0"
+          }
+        }
+      },
+      "REG_STAGE4_0": {
+        "vlnv": "xilinx.com:module_ref:REG_STAGE4:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_REG_STAGE4_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_REG_STAGE4_0_0\\FLOAT_POINT_MAC_REG_STAGE4_0_0.xci",
+        "inst_hier_path": "REG_STAGE4_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "REG_STAGE4",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "FLOAT_POINT_MAC_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sign_norm": {
+            "direction": "I"
+          },
+          "exp_norm": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_norm": {
+            "direction": "I",
+            "left": "47",
+            "right": "0"
+          },
+          "sign_norm_reg": {
+            "direction": "O"
+          },
+          "exp_norm_reg": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_norm_reg": {
+            "direction": "O",
+            "left": "47",
+            "right": "0"
+          }
+        }
+      },
+      "FLOAT_ROUND_0": {
+        "vlnv": "xilinx.com:module_ref:FLOAT_ROUND:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_FLOAT_ROUND_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_FLOAT_ROUND_0_0\\FLOAT_POINT_MAC_FLOAT_ROUND_0_0.xci",
+        "inst_hier_path": "FLOAT_ROUND_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FLOAT_ROUND",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sign_norm": {
+            "direction": "I"
+          },
+          "exp_norm": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_norm": {
+            "direction": "I",
+            "left": "47",
+            "right": "0"
+          },
+          "sign_r": {
+            "direction": "O"
+          },
+          "exp_r": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_r": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          }
+        }
+      },
+      "REG_STAGE5_0": {
+        "vlnv": "xilinx.com:module_ref:REG_STAGE5:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_REG_STAGE5_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_REG_STAGE5_0_0\\FLOAT_POINT_MAC_REG_STAGE5_0_0.xci",
+        "inst_hier_path": "REG_STAGE5_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "REG_STAGE5",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "FLOAT_POINT_MAC_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sign_r": {
+            "direction": "I"
+          },
+          "exp_r": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_r": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "sign_r_reg": {
+            "direction": "O"
+          },
+          "exp_r_reg": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_r_reg": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          }
+        }
+      },
+      "FLOAT_PACK_0": {
+        "vlnv": "xilinx.com:module_ref:FLOAT_PACK:1.0",
+        "ip_revision": "1",
+        "xci_name": "FLOAT_POINT_MAC_FLOAT_PACK_0_0",
+        "xci_path": "ip\\FLOAT_POINT_MAC_FLOAT_PACK_0_0\\FLOAT_POINT_MAC_FLOAT_PACK_0_0.xci",
+        "inst_hier_path": "FLOAT_PACK_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FLOAT_PACK",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sign_r": {
+            "direction": "I"
+          },
+          "exp_r": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "mant_r": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "fp_result": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "FLOAT_ADDITION_0_exp_add": {
+        "ports": [
+          "FLOAT_ADDITION_0/exp_add",
+          "REG_STAGE3_0/exp_add"
+        ]
+      },
+      "FLOAT_ADDITION_0_mant_add": {
+        "ports": [
+          "FLOAT_ADDITION_0/mant_add",
+          "REG_STAGE3_0/mant_add"
+        ]
+      },
+      "FLOAT_ADDITION_0_sign_add": {
+        "ports": [
+          "FLOAT_ADDITION_0/sign_add",
+          "REG_STAGE3_0/sign_add"
+        ]
+      },
+      "FLOAT_MULTIPLIER_0_exp_m": {
+        "ports": [
+          "FLOAT_MULTIPLIER_0/exp_m",
+          "REG_STAGE2_0/exp_m"
+        ]
+      },
+      "FLOAT_MULTIPLIER_0_mant_m": {
+        "ports": [
+          "FLOAT_MULTIPLIER_0/mant_m",
+          "REG_STAGE2_0/mant_m"
+        ]
+      },
+      "FLOAT_MULTIPLIER_0_sign_m": {
+        "ports": [
+          "FLOAT_MULTIPLIER_0/sign_m",
+          "REG_STAGE2_0/sign_m"
+        ]
+      },
+      "FLOAT_NORMALISE_0_exp_norm": {
+        "ports": [
+          "FLOAT_NORMALISE_0/exp_norm",
+          "REG_STAGE4_0/exp_norm"
+        ]
+      },
+      "FLOAT_NORMALISE_0_mant_norm": {
+        "ports": [
+          "FLOAT_NORMALISE_0/mant_norm",
+          "REG_STAGE4_0/mant_norm"
+        ]
+      },
+      "FLOAT_NORMALISE_0_sign_norm": {
+        "ports": [
+          "FLOAT_NORMALISE_0/sign_norm",
+          "REG_STAGE4_0/sign_norm"
+        ]
+      },
+      "FLOAT_PACK_0_fp_result": {
+        "ports": [
+          "FLOAT_PACK_0/fp_result",
+          "fp_result_0"
+        ]
+      },
+      "FLOAT_ROUND_0_exp_r": {
+        "ports": [
+          "FLOAT_ROUND_0/exp_r",
+          "REG_STAGE5_0/exp_r"
+        ]
+      },
+      "FLOAT_ROUND_0_mant_r": {
+        "ports": [
+          "FLOAT_ROUND_0/mant_r",
+          "REG_STAGE5_0/mant_r"
+        ]
+      },
+      "FLOAT_ROUND_0_sign_r": {
+        "ports": [
+          "FLOAT_ROUND_0/sign_r",
+          "REG_STAGE5_0/sign_r"
+        ]
+      },
+      "FLOAT_UNPACK_0_exp_a": {
+        "ports": [
+          "FLOAT_UNPACK_0/exp_a",
+          "REG_STAGE1_0/exp_a"
+        ]
+      },
+      "FLOAT_UNPACK_0_exp_b": {
+        "ports": [
+          "FLOAT_UNPACK_0/exp_b",
+          "REG_STAGE1_0/exp_b"
+        ]
+      },
+      "FLOAT_UNPACK_0_exp_c": {
+        "ports": [
+          "FLOAT_UNPACK_0/exp_c",
+          "REG_STAGE1_0/exp_c"
+        ]
+      },
+      "FLOAT_UNPACK_0_mant_a": {
+        "ports": [
+          "FLOAT_UNPACK_0/mant_a",
+          "REG_STAGE1_0/mant_a"
+        ]
+      },
+      "FLOAT_UNPACK_0_mant_b": {
+        "ports": [
+          "FLOAT_UNPACK_0/mant_b",
+          "REG_STAGE1_0/mant_b"
+        ]
+      },
+      "FLOAT_UNPACK_0_mant_c": {
+        "ports": [
+          "FLOAT_UNPACK_0/mant_c",
+          "REG_STAGE1_0/mant_c"
+        ]
+      },
+      "FLOAT_UNPACK_0_sign_a": {
+        "ports": [
+          "FLOAT_UNPACK_0/sign_a",
+          "REG_STAGE1_0/sign_a"
+        ]
+      },
+      "FLOAT_UNPACK_0_sign_b": {
+        "ports": [
+          "FLOAT_UNPACK_0/sign_b",
+          "REG_STAGE1_0/sign_b"
+        ]
+      },
+      "FLOAT_UNPACK_0_sign_c": {
+        "ports": [
+          "FLOAT_UNPACK_0/sign_c",
+          "REG_STAGE1_0/sign_c"
+        ]
+      },
+      "REG_STAGE1_0_exp_a_reg": {
+        "ports": [
+          "REG_STAGE1_0/exp_a_reg",
+          "FLOAT_MULTIPLIER_0/exp_a"
+        ]
+      },
+      "REG_STAGE1_0_exp_b_reg": {
+        "ports": [
+          "REG_STAGE1_0/exp_b_reg",
+          "FLOAT_MULTIPLIER_0/exp_b"
+        ]
+      },
+      "REG_STAGE1_0_exp_c_reg": {
+        "ports": [
+          "REG_STAGE1_0/exp_c_reg",
+          "REG_STAGE2_0/exp_c_in"
+        ]
+      },
+      "REG_STAGE1_0_mant_a_reg": {
+        "ports": [
+          "REG_STAGE1_0/mant_a_reg",
+          "FLOAT_MULTIPLIER_0/mant_a"
+        ]
+      },
+      "REG_STAGE1_0_mant_b_reg": {
+        "ports": [
+          "REG_STAGE1_0/mant_b_reg",
+          "FLOAT_MULTIPLIER_0/mant_b"
+        ]
+      },
+      "REG_STAGE1_0_mant_c_reg": {
+        "ports": [
+          "REG_STAGE1_0/mant_c_reg",
+          "REG_STAGE2_0/mant_c_in"
+        ]
+      },
+      "REG_STAGE1_0_sign_a_reg": {
+        "ports": [
+          "REG_STAGE1_0/sign_a_reg",
+          "FLOAT_MULTIPLIER_0/sign_a"
+        ]
+      },
+      "REG_STAGE1_0_sign_b_reg": {
+        "ports": [
+          "REG_STAGE1_0/sign_b_reg",
+          "FLOAT_MULTIPLIER_0/sign_b"
+        ]
+      },
+      "REG_STAGE1_0_sign_c_reg": {
+        "ports": [
+          "REG_STAGE1_0/sign_c_reg",
+          "REG_STAGE2_0/sign_c_in"
+        ]
+      },
+      "REG_STAGE2_0_exp_c_reg2": {
+        "ports": [
+          "REG_STAGE2_0/exp_c_reg2",
+          "FLOAT_ADDITION_0/exp_c"
+        ]
+      },
+      "REG_STAGE2_0_exp_m_reg": {
+        "ports": [
+          "REG_STAGE2_0/exp_m_reg",
+          "FLOAT_ADDITION_0/exp_m"
+        ]
+      },
+      "REG_STAGE2_0_mant_c_reg2": {
+        "ports": [
+          "REG_STAGE2_0/mant_c_reg2",
+          "FLOAT_ADDITION_0/mant_c"
+        ]
+      },
+      "REG_STAGE2_0_mant_m_reg": {
+        "ports": [
+          "REG_STAGE2_0/mant_m_reg",
+          "FLOAT_ADDITION_0/mant_m"
+        ]
+      },
+      "REG_STAGE2_0_sign_c_reg2": {
+        "ports": [
+          "REG_STAGE2_0/sign_c_reg2",
+          "FLOAT_ADDITION_0/sign_c"
+        ]
+      },
+      "REG_STAGE2_0_sign_m_reg": {
+        "ports": [
+          "REG_STAGE2_0/sign_m_reg",
+          "FLOAT_ADDITION_0/sign_m"
+        ]
+      },
+      "REG_STAGE3_0_exp_add_reg": {
+        "ports": [
+          "REG_STAGE3_0/exp_add_reg",
+          "FLOAT_NORMALISE_0/exp_add"
+        ]
+      },
+      "REG_STAGE3_0_mant_add_reg": {
+        "ports": [
+          "REG_STAGE3_0/mant_add_reg",
+          "FLOAT_NORMALISE_0/mant_add"
+        ]
+      },
+      "REG_STAGE3_0_sign_add_reg": {
+        "ports": [
+          "REG_STAGE3_0/sign_add_reg",
+          "FLOAT_NORMALISE_0/sign_add"
+        ]
+      },
+      "REG_STAGE4_0_exp_norm_reg": {
+        "ports": [
+          "REG_STAGE4_0/exp_norm_reg",
+          "FLOAT_ROUND_0/exp_norm"
+        ]
+      },
+      "REG_STAGE4_0_mant_norm_reg": {
+        "ports": [
+          "REG_STAGE4_0/mant_norm_reg",
+          "FLOAT_ROUND_0/mant_norm"
+        ]
+      },
+      "REG_STAGE4_0_sign_norm_reg": {
+        "ports": [
+          "REG_STAGE4_0/sign_norm_reg",
+          "FLOAT_ROUND_0/sign_norm"
+        ]
+      },
+      "REG_STAGE5_0_exp_r_reg": {
+        "ports": [
+          "REG_STAGE5_0/exp_r_reg",
+          "FLOAT_PACK_0/exp_r"
+        ]
+      },
+      "REG_STAGE5_0_mant_r_reg": {
+        "ports": [
+          "REG_STAGE5_0/mant_r_reg",
+          "FLOAT_PACK_0/mant_r"
+        ]
+      },
+      "REG_STAGE5_0_sign_r_reg": {
+        "ports": [
+          "REG_STAGE5_0/sign_r_reg",
+          "FLOAT_PACK_0/sign_r"
+        ]
+      },
+      "a_0_1": {
+        "ports": [
+          "a_0",
+          "FLOAT_UNPACK_0/a"
+        ]
+      },
+      "b_0_1": {
+        "ports": [
+          "b_0",
+          "FLOAT_UNPACK_0/b"
+        ]
+      },
+      "c_0_1": {
+        "ports": [
+          "c_0",
+          "FLOAT_UNPACK_0/c"
+        ]
+      },
+      "clk_0_1": {
+        "ports": [
+          "clk_0",
+          "REG_STAGE1_0/clk",
+          "REG_STAGE2_0/clk",
+          "REG_STAGE3_0/clk",
+          "REG_STAGE4_0/clk",
+          "REG_STAGE5_0/clk"
+        ]
+      },
+      "rst_0_1": {
+        "ports": [
+          "rst_0",
+          "REG_STAGE1_0/rst",
+          "REG_STAGE2_0/rst",
+          "REG_STAGE3_0/rst",
+          "REG_STAGE4_0/rst",
+          "REG_STAGE5_0/rst"
+        ]
+      }
+    }
+  }
+}
